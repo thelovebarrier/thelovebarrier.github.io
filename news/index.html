@@ -85,20 +85,45 @@ li a:hover {
 <br><br><br><br><br><br>
 <center>
 <p class="textbox">
-  Hey it’s your Mod NotPopgirl, just some daily news of what we’re working on so if you want too join you can get a closer Look!
-
-  Currently designers aka ch design is working on the clothes concepts and the ch’s in general.
-  
-  Voice actors are currently working on there voices and applying ( VOICE ACTORS WANTED ). 
-  
-  Animators , background music and music are low on people if you would like too apply please dm the owner or fill out the form!
-  
-  Have a nice day!
+  News are loading...
 </p>
 </center>
 
-        <script>
-        </script>
+<script>
+
+  var getJSON = function(url, callback) {
+  
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.responseType = 'json';
+      
+      xhr.onload = function() {
+      
+          var status = xhr.status;
+          
+          if (status == 200) {
+              callback(null, xhr.response);
+          } else {
+              callback(status);
+          }
+      };
+      
+      xhr.send();
+  };
+  
+  getJSON('https://pyproject2-api.itspaulmc.repl.co/cjksdfj-sdfh-dsfjfj-sdfh/changenews',  function(err, data) {
+      
+      if (err != null) {
+          console.error(err);
+      } else {
+          
+          var text = `${data.x}`
+      
+          document.getElementByClassName('textbox').innerHTML = text;
+      }
+  });
+  
+  </script>
     </body>
 
 </html>

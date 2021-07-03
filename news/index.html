@@ -84,7 +84,7 @@ li a:hover {
       </ul>
 <br><br><br><br><br><br>
 <center>
-<p class="textbox">
+<p id="news" class="textbox">
   News are loading...
 </p>
 </center>
@@ -119,7 +119,8 @@ li a:hover {
           
           var text = `${data.x}`
       
-          document.getElementsByClassName('textbox').innerHTML = text;
+          document.getElementById('news').innerHTML = text;
+          console.log("updated news")
       }
   });
   
